@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Beispieldaten / Uploads
+*.xlsx
+*.csv
+!example.xlsx
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
