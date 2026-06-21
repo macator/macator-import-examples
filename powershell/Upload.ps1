@@ -7,7 +7,7 @@
 $ApiKey  = "YOUR_API_KEY"
 $FeedId  = "00000000-0000-0000-0000-000000000000"
 $Path    = "produkte.xlsx"
-$BaseUrl = "https://<IHRE-PORTAL-DOMAIN>/api/v1/import"
+$BaseUrl = "https://IHR-PORTAL/api/v1/import"  # vollständige Base-URL aus dem Portal übernehmen
 $Hdrs    = @{ Authorization = "Bearer $ApiKey" }
 
 # 1. Upload-URL anfordern

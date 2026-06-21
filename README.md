@@ -19,7 +19,7 @@ denselben Flow aus:
 | --- | --- |
 | **API-Key** | Portal → API-Keys → *Neuen API-Key erstellen*. Der Key wird nur **einmal** angezeigt — sicher speichern. |
 | **Feed-ID** | Portal → Feed Management → Detail-Ansicht des jeweiligen Feeds. |
-| **Base-URL** | `https://<IHRE-PORTAL-DOMAIN>/api/v1/import` — Ihre Portal-Domain. |
+| **Base-URL** | Im Portal angezeigt — Ihre Portal-Adresse gefolgt von `/api/v1/import`. |
 
 Der Key wird bei jeder Anfrage als HTTP-Header gesetzt:
 

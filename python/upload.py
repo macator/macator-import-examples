@@ -14,7 +14,7 @@ import requests
 API_KEY   = "YOUR_API_KEY"
 FEED_ID   = "00000000-0000-0000-0000-000000000000"
 FILE_PATH = "produkte.xlsx"
-BASE      = "https://<IHRE-PORTAL-DOMAIN>/api/v1/import"
+BASE      = "https://IHR-PORTAL/api/v1/import"  # vollständige Base-URL aus dem Portal übernehmen
 HEADERS   = {"Authorization": f"Bearer {API_KEY}"}
 
 # 1. Upload-URL anfordern

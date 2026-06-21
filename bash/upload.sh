@@ -10,7 +10,7 @@ set -euo pipefail
 API_KEY="YOUR_API_KEY"
 FEED_ID="00000000-0000-0000-0000-000000000000"
 FILE="produkte.xlsx"
-BASE="https://<IHRE-PORTAL-DOMAIN>/api/v1/import"
+BASE="https://IHR-PORTAL/api/v1/import"  # vollständige Base-URL aus dem Portal übernehmen
 
 # 1. Upload-URL anfordern
 RESP=$(curl -s -X POST "$BASE/request-upload" \
