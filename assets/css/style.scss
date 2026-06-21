@@ -1,0 +1,47 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+// Macator-Branding über dem Cayman-Theme
+// Primär #042b66 (Blau), Akzent #e07e0d (Orange)
+
+.page-header {
+  background-color: #042b66;
+  background-image: linear-gradient(120deg, #063d8c, #042b66);
+}
+
+.btn {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+
+  &:hover {
+    color: #042b66;
+    background-color: #fff;
+    border-color: #fff;
+  }
+}
+
+.main-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #042b66;
+  }
+
+  a {
+    color: #042b66;
+
+    &:hover {
+      color: #e07e0d;
+    }
+  }
+
+  table th {
+    background-color: #042b66;
+    color: #fff;
+  }
+}
