@@ -7,9 +7,9 @@ einem ERP-System oder anderen Diensten.
 Verfügbar in **Python**, **Bash (curl)** und **PowerShell**. Alle drei führen
 denselben Flow aus:
 
-1. Presigned-Upload-URL anfordern
-2. Datei direkt nach S3 hochladen
-3. Sicherheitscheck (Virenscan) pollen
+1. Upload-URL anfordern
+2. Produktdaten-/Katalogdatei nach Macator hochladen
+3. Sicherheitscheck der hochgeladenen Daten abrufen
 4. Daten validieren
 5. Import freigeben
 
@@ -34,7 +34,7 @@ Upload-Endpoints aufrufen — kein Lesezugriff auf andere Daten.
 
 | Methode | Pfad | Zweck |
 | --- | --- | --- |
-| `POST` | `/request-upload` | Datei einreichen, Presigned-URL erhalten |
+| `POST` | `/request-upload` | Datei einreichen, Upload-URL erhalten |
 | `GET`  | `/jobs/{id}/scan-status` | Sicherheitscheck-Status abfragen |
 | `POST` | `/jobs/{id}/validate` | Daten validieren |
 | `POST` | `/jobs/{id}/submit` | Import auslösen |

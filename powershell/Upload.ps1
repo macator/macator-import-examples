@@ -10,7 +10,7 @@ $Path    = "produkte.xlsx"
 $BaseUrl = "https://<IHRE-PORTAL-DOMAIN>/api/v1/import"
 $Hdrs    = @{ Authorization = "Bearer $ApiKey" }
 
-# 1. Presigned URL anfordern
+# 1. Upload-URL anfordern
 $body = @{
   feed_id   = $FeedId
   filename  = (Split-Path $Path -Leaf)
@@ -21,11 +21,11 @@ $r1 = Invoke-RestMethod -Method POST -Uri "$BaseUrl/request-upload" `
   -Headers $Hdrs -ContentType "application/json" -Body $body
 $JobId = $r1.job_id
 
-# 2. Datei nach S3 hochladen
+# 2. Produktdaten-/Katalogdatei nach Macator hochladen
 Invoke-WebRequest -Method PUT -Uri $r1.presigned_url `
   -InFile $Path -ContentType $r1.content_type -UseBasicParsing | Out-Null
 
-# 3. Scan-Status pollen
+# 3. Sicherheitscheck der hochgeladenen Daten abrufen
 do {
   Start-Sleep -Seconds 3
   $s = Invoke-RestMethod -Method GET -Uri "$BaseUrl/jobs/$JobId/scan-status" -Headers $Hdrs

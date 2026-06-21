@@ -17,7 +17,7 @@ FILE_PATH = "produkte.xlsx"
 BASE      = "https://<IHRE-PORTAL-DOMAIN>/api/v1/import"
 HEADERS   = {"Authorization": f"Bearer {API_KEY}"}
 
-# 1. Presigned URL anfordern
+# 1. Upload-URL anfordern
 resp = requests.post(
     f"{BASE}/request-upload",
     headers=HEADERS,
@@ -31,7 +31,7 @@ resp.raise_for_status()
 data = resp.json()
 job_id = data["job_id"]
 
-# 2. Datei direkt nach S3 hochladen
+# 2. Produktdaten-/Katalogdatei nach Macator hochladen
 with open(FILE_PATH, "rb") as f:
     put = requests.put(
         data["presigned_url"],
@@ -40,7 +40,7 @@ with open(FILE_PATH, "rb") as f:
     )
     put.raise_for_status()
 
-# 3. Sicherheitscheck pollen (max 90s)
+# 3. Sicherheitscheck der hochgeladenen Daten abrufen (max 90s)
 deadline = time.time() + 90
 while time.time() < deadline:
     s = requests.get(f"{BASE}/jobs/{job_id}/scan-status", headers=HEADERS).json()

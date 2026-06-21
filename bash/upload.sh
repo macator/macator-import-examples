@@ -12,7 +12,7 @@ FEED_ID="00000000-0000-0000-0000-000000000000"
 FILE="produkte.xlsx"
 BASE="https://<IHRE-PORTAL-DOMAIN>/api/v1/import"
 
-# 1. Presigned URL anfordern
+# 1. Upload-URL anfordern
 RESP=$(curl -s -X POST "$BASE/request-upload" \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
@@ -21,10 +21,10 @@ JOB_ID=$(echo "$RESP" | jq -r .job_id)
 URL=$(echo "$RESP" | jq -r .presigned_url)
 CT=$(echo "$RESP" | jq -r .content_type)
 
-# 2. Datei nach S3 hochladen
+# 2. Produktdaten-/Katalogdatei nach Macator hochladen
 curl -X PUT "$URL" -H "Content-Type: $CT" --data-binary @"$FILE"
 
-# 3. Scan-Status pollen
+# 3. Sicherheitscheck der hochgeladenen Daten abrufen
 while :; do
   S=$(curl -s "$BASE/jobs/$JOB_ID/scan-status" -H "Authorization: Bearer $API_KEY")
   echo "scan_status: $(echo "$S" | jq -r .scan_status)"
