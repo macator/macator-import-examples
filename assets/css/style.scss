@@ -1,0 +1,52 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+// Macator-Branding: neutraler grauer Header mit schwarzer Schrift,
+// blaue Überschriften/Links, Orange als Hover-Akzent.
+
+.page-header {
+  background-color: #e6e8eb;
+  background-image: none;
+}
+
+.project-name,
+.project-tagline {
+  color: #000;
+}
+
+.btn {
+  color: #24292e;
+  border-color: rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    color: #042b66;
+    background-color: #fff;
+    border-color: #042b66;
+  }
+}
+
+.main-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #042b66;
+  }
+
+  a {
+    color: #042b66;
+
+    &:hover {
+      color: #e07e0d;
+    }
+  }
+
+  table th {
+    background-color: #042b66;
+    color: #fff;
+  }
+}
